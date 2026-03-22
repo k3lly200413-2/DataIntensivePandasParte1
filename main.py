@@ -11,7 +11,9 @@ def main():
     
     data = np.load("usa_census.npz")
     for name, array in data.items():
-        print(name, array.dtype, array.shape)
+        print(f"{name:>15}: {array.dtype!s:>8} {array.shape}")
+        # "!s" = converti in stringa con str(x) in modo da poter applicare formato
+        # ">N" = riserva N caratteri e allinea a destra
 
 
 if __name__ == "__main__":
