@@ -23,6 +23,18 @@ def main():
     print(population.index[:5])
     print(len(population))
     print(population.size)
+    
+    
+    # Prints the value associated with the Key
+    print(population["California"])
+    # Prints the values between the two keys
+    print(population["Arizona": "Colorado"])
+    # Same thing but if sorted prints the Keys between the two letters 
+    print(population["S": "V"])
+    
+    west_coast = ["Washington", "Oregon", "California"]
+
+    print(population[west_coast])
 
 if __name__ == "__main__":
     main()
