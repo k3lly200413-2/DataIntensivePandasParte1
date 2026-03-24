@@ -1,6 +1,12 @@
 import numpy as np
 import pandas as pd
 
+def getSquareArea(array_to_use):
+    return array_to_use * 2.59
+
+def getDensity(population, area):
+    return population / area
+
 def main():
     DATA_URL = "https://github.com/datascienceunibo/dialab2024/raw/main/Preprocessing_con_pandas/usa_census.npz"
 
@@ -37,14 +43,17 @@ def main():
     print(population[west_coast])
     
     area = pd.Series(data["area"], index=data["states"])
-    other_states = pd.Series(data["other_states"], index=["states"])
+    other_state = pd.Series(data["other_state"], index=data["states"])
     from_abroad = pd.Series(data["from_abroad"], index=data["states"])
 
-    print(population / 1_000_000).head(3)
-    
+    print("population\n")
+    print((population / 1_000_000).head(3))
+    print("\nlog10")
     print(np.log10(population).head(3))
-    
-    
+    print("\narea")
+    print(getSquareArea(area)[:3])
+    print("\nDensity")
+    print(getDensity(population, getSquareArea(area))[:3])
 
 if __name__ == "__main__":
     main()
