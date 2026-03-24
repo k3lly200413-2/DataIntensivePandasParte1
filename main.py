@@ -51,6 +51,7 @@ def main():
     print("\nlog10")
     print(np.log10(population).head(3))
     print("\narea")
+    area_km2 = getSquareArea(area)
     print(getSquareArea(area)[:3])
     print("\nDensity")
     print(getDensity(population, getSquareArea(area))[:3])
@@ -81,5 +82,29 @@ def main():
     print("\npopulation\n", population[west_coast].sum())
     print("\n avarege density with at least 10M\n", getDensity(population[population>=10_000_000], area).mean())
     
+    census = pd.DataFrame({
+    "population": population,
+    "from_abroad": from_abroad,
+    "area": area_km2
+    })
+    
+    print(census.head(5))
+    
+    # first four rows
+    print(census.values[:4])
+    # first four states
+    print(census.index[:4])
+    print(census.columns)
+    # number or rows and columns
+    print(census.shape)
+    
+    # We pass a matrix that shows how many people moved from one state to another and as rows and columns we have the names of the states
+    # columns is from where rows is to where people go
+    state_to_state = pd.DataFrame(data["state_to_state"], index=data["states"], columns=data["states"])
+    print(state_to_state)
+    
+    print(state_to_state.head(5))
+    
+        
 if __name__ == "__main__":
     main()
