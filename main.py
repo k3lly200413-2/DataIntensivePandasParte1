@@ -35,6 +35,16 @@ def main():
     west_coast = ["Washington", "Oregon", "California"]
 
     print(population[west_coast])
+    
+    area = pd.Series(data["area"], index=data["states"])
+    other_states = pd.Series(data["other_states"], index=["states"])
+    from_abroad = pd.Series(data["from_abroad"], index=data["states"])
+
+    print(population / 1_000_000).head(3)
+    
+    print(np.log10(population).head(3))
+    
+    
 
 if __name__ == "__main__":
     main()
