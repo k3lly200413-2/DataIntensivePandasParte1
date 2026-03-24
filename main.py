@@ -64,6 +64,22 @@ def main():
     print("\n")
     # places that are smaller than 5000 and have more than 1000000 citizens 
     print(population[is_small & (population > 1_000_000)])
+    
+    
+    print("\n", population.sum())
+    print("\n", population.max())
+    # etichetta del valore maggiore
+    print("\n", population.idxmax())
+    # same with min
+    print("\nArea min\n")
+    print(area.idxmin())
+    print("\ndensity\n")
+    print(getDensity(population[area.idxmin()], area[area.idxmin()]))
 
+    print("\n",(population > 1_000_000).sum())
+    
+    print("\npopulation\n", population[west_coast].sum())
+    print("\n avarege density with at least 10M\n", getDensity(population[population>=10_000_000], area).mean())
+    
 if __name__ == "__main__":
     main()
