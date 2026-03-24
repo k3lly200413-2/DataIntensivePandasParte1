@@ -54,6 +54,16 @@ def main():
     print(getSquareArea(area)[:3])
     print("\nDensity")
     print(getDensity(population, getSquareArea(area))[:3])
+    
+    is_small = area <= 5000
+    print(is_small.head(10))
+    print("\n")
+    print(area[area <= 5000])
+    # Same as area[is_small]
+    
+    print("\n")
+    # places that are smaller than 5000 and have more than 1000000 citizens 
+    print(population[is_small & (population > 1_000_000)])
 
 if __name__ == "__main__":
     main()
