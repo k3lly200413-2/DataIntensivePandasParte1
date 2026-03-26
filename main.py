@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def getSquareArea(array_to_use):
     return array_to_use * 2.59
@@ -23,64 +24,64 @@ def main():
 
     population = pd.Series(data["population"], index=data["states"])
     
-    print(population.head(7))   
+    # print(population.head(7))   
     
-    print(population.values[:5])
-    print(population.index[:5])
-    print(len(population))
-    print(population.size)
+    # print(population.values[:5])
+    # print(population.index[:5])
+    # print(len(population))
+    # print(population.size)
     
     
     # Prints the value associated with the Key
-    print(population["California"])
-    # Prints the values between the two keys
-    print(population["Arizona": "Colorado"])
+    # print(population["California"])
+    # # prints the values between the two keys
+    # print(population["Arizona": "Colorado"])
     # Same thing but if sorted prints the Keys between the two letters 
-    print(population["S": "V"])
+    # print(population["S": "V"])
     
     west_coast = ["Washington", "Oregon", "California"]
 
-    print(population[west_coast])
+    # print(population[west_coast])
     
     area = pd.Series(data["area"], index=data["states"])
     other_state = pd.Series(data["other_state"], index=data["states"])
     from_abroad = pd.Series(data["from_abroad"], index=data["states"])
 
-    print("population\n")
-    print((population / 1_000_000).head(3))
-    print("\nlog10")
-    print(np.log10(population).head(3))
-    print("\narea")
+    # print("population\n")
+    # print((population / 1_000_000).head(3))
+    # print("\nlog10")
+    # print(np.log10(population).head(3))
+    # print("\narea")
     area_km2 = getSquareArea(area)
-    print(getSquareArea(area)[:3])
-    print("\nDensity")
-    print(getDensity(population, getSquareArea(area))[:3])
+    # print(getSquareArea(area)[:3])
+    # print("\nDensity")
+    # print(getDensity(population, getSquareArea(area))[:3])
     
     is_small = area <= 5000
-    print(is_small.head(10))
-    print("\n")
-    print(area[area <= 5000])
+    # print(is_small.head(10))
+    # print("\n")
+    # print(area[area <= 5000])
     # Same as area[is_small]
     
-    print("\n")
+    # print("\n")
     # places that are smaller than 5000 and have more than 1000000 citizens 
-    print(population[is_small & (population > 1_000_000)])
+    # print(population[is_small & (population > 1_000_000)])
     
     
-    print("\n", population.sum())
-    print("\n", population.max())
+    # print("\n", population.sum())
+    # print("\n", population.max())
     # etichetta del valore maggiore
-    print("\n", population.idxmax())
+    # print("\n", population.idxmax())
     # same with min
-    print("\nArea min\n")
-    print(area.idxmin())
-    print("\ndensity\n")
-    print(getDensity(population[area.idxmin()], area[area.idxmin()]))
+    # print("\nArea min\n")
+    # print(area.idxmin())
+    # print("\ndensity\n")
+    # print(getDensity(population[area.idxmin()], area[area.idxmin()]))
 
-    print("\n",(population > 1_000_000).sum())
+    # print("\n",(population > 1_000_000).sum())
     
-    print("\npopulation\n", population[west_coast].sum())
-    print("\n avarege density with at least 10M\n", getDensity(population[population>=10_000_000], area).mean())
+    # print("\npopulation\n", population[west_coast].sum())
+    # print("\n avarege density with at least 10M\n", getDensity(population[population>=10_000_000], area).mean())
     
     census = pd.DataFrame({
     "population": population,
@@ -104,46 +105,55 @@ def main():
     # print(state_to_state)
     
     # print(state_to_state.head(5))
-    print(census["population"].head(3))
+    # print(census["population"].head(3))
     
     census["density"] = census["population"] / census["area"]
     
-    print(census.describe())
+    # print(census.describe())
     
-    print(census["area"].idxmax())
+    # print(census["area"].idxmax())
     
-    print(state_to_state["Arizona"].sum())
+    # print(state_to_state["Arizona"].sum())
     
-    print(state_to_state.sum(axis=1).idxmin())
+    # print(state_to_state.sum(axis=1).idxmin())
     
     # Selections
-    print(census.loc["California", :"from_abroad"])
+    # print(census.loc["California", :"from_abroad"])
     
-    print(census.loc[census["population"] < 700_000])
+    # print(census.loc[census["population"] < 700_000])
     
-    print(state_to_state.iloc[:3, :5])
+    # print(state_to_state.iloc[:3, :5])
     
     # print only the first 3 rows and only the column population
-    print(census.iloc[:3].loc[:, "population"])
+    # print(census.iloc[:3].loc[:, "population"])
     
-    print(census.sort_values("population", ascending=False).head(5))
+    # print(census.sort_values("population", ascending=False).head(5))
     
-    print(census["area"].loc["California"])
+    # print(census["area"].loc["California"])
     
-    print(census.iloc[12].iloc[0])
-    print(census.iloc[12, 0])
+    # print(census.iloc[12].iloc[0])
+    # print(census.iloc[12, 0])
     
-    print(census.loc[census["area"].idxmax(), "density"])
+    # print(census.loc[census["area"].idxmax(), "density"])
     
-    print(census.loc["M": "N", "population"].sum())
+    # print(census.loc["M": "N", "population"].sum())
     
-    print(census.loc[census["population"] >= 20_000_000, "area"].count())
+    # print(census.loc[census["population"] >= 20_000_000, "area"].count())
     
-    print(census.loc[census["from_abroad"] / census["population"] >= 0.01, "population"].mean())
+    # print(census.loc[census["from_abroad"] / census["population"] >= 0.01, "population"].mean())
     
-    print(census.sort_values("density").head(5))
+    # print(census.sort_values("density").head(5))
     
-    print(census.sort_values("area", ascending=False).iloc[2, 0])
+    # print(census.sort_values("area", ascending=False).iloc[2, 0])
+    
+    
+    
+    plt.bar(
+        [ "two", "four",   "pi",    "e"],  # etichette
+        [     2,      4,   3.14,   2.71]   # valori
+    )
+    
+    plt.show()
     
 if __name__ == "__main__":
     main()
