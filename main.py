@@ -155,10 +155,10 @@ def main():
     #     west_coast_population   # valori
     # )
     
-    west_coast_population.plot.bar()
+    # west_coast_population.plot.bar()
     
-    plt.figure(figsize=(16, 4))
-    population_mln.plot.bar()
+    # plt.figure(figsize=(16, 4))
+    population_mln.plot.bar(figsize=(16, 4))
     
     plt.show()
     
