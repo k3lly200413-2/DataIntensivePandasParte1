@@ -164,8 +164,11 @@ def main():
     # plt.xlabel("Stato")
     # plt.ylabel("Popolazione (milioni di abitanti)")
     
-    plt.figure(figsize=(4, 6))
-    plt.boxplot(population_mln, showmeans=True)
+    # plt.figure(figsize=(4, 6))
+    # plt.boxplot(population_mln, showmeans=True)
+    # plt.grid(axis="y")
+    
+    population_mln.plot.box(showmeans=True, figsize=(4, 6))
     plt.grid(axis="y")
     
     plt.show()
