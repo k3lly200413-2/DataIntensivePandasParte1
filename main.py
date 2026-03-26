@@ -115,6 +115,16 @@ def main():
     print(state_to_state["Arizona"].sum())
     
     print(state_to_state.sum(axis=1).idxmin())
+    
+    # Selections
+    print(census.loc["California", :"from_abroad"])
+    
+    print(census.loc[census["population"] < 700_000])
+    
+    print(state_to_state.iloc[:3, :5])
+    
+    # print only the first 3 rows and only the column population
+    print(census.iloc[:3].loc[:, "population"])
         
 if __name__ == "__main__":
     main()
