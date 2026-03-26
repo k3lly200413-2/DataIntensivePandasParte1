@@ -146,12 +146,14 @@ def main():
     
     # print(census.sort_values("area", ascending=False).iloc[2, 0])
     
+    west_coast_population = population[west_coast]
     
+    # plt.bar(
+    #     west_coast,             # etichette
+    #     west_coast_population   # valori
+    # )
     
-    plt.bar(
-        [ "two", "four",   "pi",    "e"],  # etichette
-        [     2,      4,   3.14,   2.71]   # valori
-    )
+    west_coast_population.plot.bar()
     
     plt.show()
     
