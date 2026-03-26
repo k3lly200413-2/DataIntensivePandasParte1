@@ -125,6 +125,8 @@ def main():
     
     # print only the first 3 rows and only the column population
     print(census.iloc[:3].loc[:, "population"])
+    
+    print(census.sort_values("population", ascending=False).head(5))
         
 if __name__ == "__main__":
     main()
