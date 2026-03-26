@@ -88,23 +88,27 @@ def main():
     "area": area_km2
     })
     
-    print(census.head(5))
+    # print(census.head(5))
     
     # first four rows
-    print(census.values[:4])
+    # print(census.values[:4])
     # first four states
-    print(census.index[:4])
-    print(census.columns)
+    # print(census.index[:4])
+    # print(census.columns)
     # number or rows and columns
-    print(census.shape)
+    # print(census.shape)
     
     # We pass a matrix that shows how many people moved from one state to another and as rows and columns we have the names of the states
     # columns is from where rows is to where people go
     state_to_state = pd.DataFrame(data["state_to_state"], index=data["states"], columns=data["states"])
-    print(state_to_state)
+    # print(state_to_state)
     
-    print(state_to_state.head(5))
+    # print(state_to_state.head(5))
+    print(census["population"].head(3))
     
+    census["density"] = census["population"] / census["area"]
+    
+    print(census.describe())
         
 if __name__ == "__main__":
     main()
