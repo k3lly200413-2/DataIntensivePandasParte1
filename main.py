@@ -109,6 +109,12 @@ def main():
     census["density"] = census["population"] / census["area"]
     
     print(census.describe())
+    
+    print(census["area"].idxmax())
+    
+    print(state_to_state["Arizona"].sum())
+    
+    print(state_to_state.sum(axis=1).idxmin())
         
 if __name__ == "__main__":
     main()
