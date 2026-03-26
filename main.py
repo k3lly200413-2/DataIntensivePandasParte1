@@ -127,6 +127,23 @@ def main():
     print(census.iloc[:3].loc[:, "population"])
     
     print(census.sort_values("population", ascending=False).head(5))
-        
+    
+    print(census["area"].loc["California"])
+    
+    print(census.iloc[12].iloc[0])
+    print(census.iloc[12, 0])
+    
+    print(census.loc[census["area"].idxmax(), "density"])
+    
+    print(census.loc["M": "N", "population"].sum())
+    
+    print(census.loc[census["population"] >= 20_000_000, "area"].count())
+    
+    print(census.loc[census["from_abroad"] / census["population"] >= 0.01, "population"].mean())
+    
+    print(census.sort_values("density").head(5))
+    
+    print(census.sort_values("area", ascending=False).iloc[2, 0])
+    
 if __name__ == "__main__":
     main()
