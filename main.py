@@ -169,6 +169,13 @@ def main():
     # plt.grid(axis="y")
     
     population_mln.plot.box(showmeans=True, figsize=(4, 6))
+    
+    # Box is the first and third quartile of the data
+    # and the green line is the mean of the data
+    # The circles are the outliers
+    # vertical/horizontal lines indicate the min and max without data 
+    # triangle is the avarege#
+    
     plt.grid(axis="y")
     
     plt.show()
