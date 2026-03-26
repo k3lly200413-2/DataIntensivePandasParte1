@@ -146,6 +146,8 @@ def main():
     
     # print(census.sort_values("area", ascending=False).iloc[2, 0])
     
+    population_mln = population / 1_000_000
+    
     west_coast_population = population[west_coast]
     
     # plt.bar(
@@ -154,6 +156,9 @@ def main():
     # )
     
     west_coast_population.plot.bar()
+    
+    plt.figure(figsize=(16, 4))
+    population_mln.plot.bar()
     
     plt.show()
     
