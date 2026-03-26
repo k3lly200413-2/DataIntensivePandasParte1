@@ -158,7 +158,11 @@ def main():
     # west_coast_population.plot.bar()
     
     # plt.figure(figsize=(16, 4))
-    population_mln.plot.bar(figsize=(16, 4))
+    population_mln.plot.bar(figsize=(16, 4), grid=True)
+    
+    plt.title("Popolazione stati USA nel 2016")
+    plt.xlabel("Stato")
+    plt.ylabel("Popolazione (milioni di abitanti)")
     
     plt.show()
     
